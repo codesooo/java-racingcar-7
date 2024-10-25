@@ -1,6 +1,9 @@
 package racingcar.output;
 
+import racingcar.domain.Car;
+
 import java.sql.SQLOutput;
+import java.util.List;
 
 public class OutputView {
     public void printCarNamePrompt() {
@@ -13,6 +16,12 @@ public class OutputView {
 
     public void printResult() {
         System.out.println("실행 결과");
+    }
+
+    public void printCarsStatus(List<Car> cars) {
+        for (Car car : cars) {
+            System.out.println(car.getCarName() + " : " + "-".repeat(car.getForwardCount()));
+        }
     }
 
     public void printWinner() {
