@@ -24,9 +24,11 @@ public class OutputView {
         }
     }
 
-    public void printWinners(List<String> winners) {
+    public void printWinnerMessage() {
         System.out.print("최종 우승자 : ");
+    }
 
+    public String printWinners(List<String> winners) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < winners.size(); i++) {
             sb.append(winners.get(i));
@@ -34,5 +36,6 @@ public class OutputView {
                 sb.append(", ");
             }
         }
+        return String.valueOf(sb);
     }
 }

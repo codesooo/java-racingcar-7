@@ -24,6 +24,45 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
+    void 기능_테스트_자동차3대() {
+        assertRandomNumberInRangeTest(
+                () -> {
+                    run("pobi,woni,jun", "5"); // 자동차 이름과 시도 횟수 설정
+
+                    // 각 라운드와 최종 우승자를 포함하는 예상 출력 검증
+                    assertThat(output()).contains(
+                            "pobi : -",
+                            "woni : ",
+                            "jun : -",
+
+                            "pobi : --",
+                            "woni : -",
+                            "jun : --",
+
+                            "pobi : ---",
+                            "woni : --",
+                            "jun : ---",
+
+                            "pobi : ----",
+                            "woni : ---",
+                            "jun : ----",
+
+                            "pobi : -----",
+                            "woni : ----",
+                            "jun : -----",
+
+                            "최종 우승자 : pobi, jun"
+                    );
+                },
+                MOVING_FORWARD, STOP, MOVING_FORWARD, // 1회차
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, // 2회차
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, // 3회차
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD, // 4회차
+                MOVING_FORWARD, MOVING_FORWARD, MOVING_FORWARD  // 5회차
+        );
+    }
+
+    @Test
     void 예외_테스트() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("pobi,javaji", "1"))

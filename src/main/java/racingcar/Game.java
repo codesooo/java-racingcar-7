@@ -15,6 +15,7 @@ public class Game {
         for (int i = 0; i < rounds; i++) {
             playRound(cars);
             outputView.printCarsStatus(cars);
+            System.out.println();
         }
     }
 

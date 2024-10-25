@@ -33,6 +33,7 @@ public class Application {
 
         // 우승자 선정
         List<String> winners = winnerSelector.selectWinners(cars);
-        outputView.printWinners(winners);
+        outputView.printWinnerMessage();
+        System.out.println(outputView.printWinners(winners));
     }
 }
