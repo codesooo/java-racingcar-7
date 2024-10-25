@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.output.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
