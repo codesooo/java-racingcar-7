@@ -13,7 +13,7 @@ class ApplicationTest extends NsTest {
     private static final int STOP = 3;
 
     @Test
-    void 기능_테스트() {
+    void 기능_테스트_자동차2대_시도횟수1회() {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
@@ -24,7 +24,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 기능_테스트_자동차3대() {
+    void 기능_테스트_자동차3대_시도횟수5회() {
         assertRandomNumberInRangeTest(
                 () -> {
                     run("pobi,woni,jun", "5"); // 자동차 이름과 시도 횟수 설정
@@ -63,10 +63,18 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 예외_테스트() {
+    void 예외_테스트_문자열길이초과() {
         assertSimpleTest(() ->
             assertThatThrownBy(() -> runException("pobi,javaji", "1"))
                 .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 예외_테스트_잘못된값입력() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,woni", "n"))
+                        .isInstanceOf(IllegalArgumentException.class)
         );
     }
 
