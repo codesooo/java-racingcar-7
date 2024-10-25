@@ -15,7 +15,7 @@ public class Application {
         OutputView outputView = new OutputView();
         CarNameParser carNameParser = new CarNameParser();
         WinnerSelector winnerSelector = new WinnerSelector();
-        Game game = new Game();
+        Game game = new Game(outputView);
 
         // 자동차 이름 입력
         outputView.printCarNamePrompt();
@@ -33,7 +33,7 @@ public class Application {
 
         // 우승자 선정
         List<String> winners = winnerSelector.selectWinners(cars);
-        outputView.printWinnerMessage();
+        outputView.formatWinners();
         System.out.println(outputView.printWinners(winners));
     }
 }

@@ -1,8 +1,6 @@
 package racingcar.output;
 
 import racingcar.domain.Car;
-
-import java.sql.SQLOutput;
 import java.util.List;
 
 public class OutputView {
@@ -24,7 +22,7 @@ public class OutputView {
         }
     }
 
-    public void printWinnerMessage() {
+    public void formatWinners() {
         System.out.print("최종 우승자 : ");
     }
 
